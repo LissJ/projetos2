@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/03/2024 às 15:25
+-- Tempo de geração: 17/04/2024 às 16:04
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -18,8 +18,29 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `projetos2`
+-- Banco de dados: `fenix`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `banner`
+--
+
+CREATE TABLE `banner` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(50) DEFAULT NULL,
+  `subtitulo` varchar(255) DEFAULT NULL,
+  `imagem` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Despejando dados para a tabela `banner`
+--
+
+INSERT INTO `banner` (`id`, `titulo`, `subtitulo`, `imagem`) VALUES
+(1, '', '', '17-04-2024-08-32-30-banner1fenix.png'),
+(2, '', '', '17-04-2024-08-49-31-banner2fenix.png');
 
 -- --------------------------------------------------------
 
@@ -58,7 +79,20 @@ CREATE TABLE `config` (
 --
 
 INSERT INTO `config` (`id`, `nome`, `email`, `senha`, `telefone`, `endereco`, `logo`, `icone`, `instagram`, `twitter`, `linkedin`, `facebook`, `youtube`, `cor`, `titulo_servicos`, `subtitulo_servicos`, `titulo_trabalhos`, `subtitulo_trabalhos`, `titulo_equipe`, `subtitulo_equipe`, `titulo_contato`, `subtitulo_contato`, `texto_rodape`) VALUES
-(1, 'Projetos', 'admin@gmail.com', '123', '(11)98765-4321', '', 'logo.png', 'icone.png', '', '', '', '', '', '#a1a1a1', NULL, NULL, NULL, NULL, NULL, NULL, 'Contate-nos', 'Preencha os Campos abaixo para entrar em contato conosco!', '');
+(1, 'Projetos', 'admin@gmail.com', '123', '(11) 98765-4321', '', 'logo.png', 'icone.png', '', '', '', '', '', '#000000', NULL, NULL, NULL, NULL, NULL, NULL, 'Contate-nos', 'Preencha os Campos abaixo para entrar em contato conosco!', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `equipe`
+--
+
+CREATE TABLE `equipe` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(50) NOT NULL,
+  `cargo` varchar(50) NOT NULL,
+  `imagem` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -91,6 +125,13 @@ CREATE TABLE `sobre` (
   `exibir` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Despejando dados para a tabela `sobre`
+--
+
+INSERT INTO `sobre` (`id`, `titulo`, `subtitulo`, `descricao`, `imagem`, `video`, `exibir`) VALUES
+(1, 'Sobre', 'Subtitulo caso Exista', 'Descrição da página Sobre', 'sem-foto.jpg', NULL, 'Imagem');
+
 -- --------------------------------------------------------
 
 --
@@ -112,9 +153,21 @@ CREATE TABLE `trabalhos` (
 --
 
 --
+-- Índices de tabela `banner`
+--
+ALTER TABLE `banner`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `config`
 --
 ALTER TABLE `config`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `equipe`
+--
+ALTER TABLE `equipe`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -140,10 +193,22 @@ ALTER TABLE `trabalhos`
 --
 
 --
+-- AUTO_INCREMENT de tabela `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de tabela `config`
 --
 ALTER TABLE `config`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `equipe`
+--
+ALTER TABLE `equipe`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `servicos`
@@ -155,7 +220,7 @@ ALTER TABLE `servicos`
 -- AUTO_INCREMENT de tabela `sobre`
 --
 ALTER TABLE `sobre`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `trabalhos`

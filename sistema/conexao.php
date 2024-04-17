@@ -2,7 +2,7 @@
 
 $usuario = 'root';
 $senha = '';
-$banco = 'projetos2';
+$banco = 'fenix';
 $servidor = 'localhost';
 
 date_default_timezone_set('America/Sao_Paulo');
